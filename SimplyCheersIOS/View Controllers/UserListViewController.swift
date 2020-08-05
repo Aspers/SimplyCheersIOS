@@ -10,13 +10,14 @@ import UIKit
 
 class UserListViewController: UIViewController {
 
+    @IBOutlet var navigationUserSearchButton: UIBarButtonItem!
+    @IBOutlet var userSearchBar: UISearchBar!
+    @IBOutlet var userList: UITableView!
+    
     let networkController = NetworkController()
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //networkController.fetchAllCategories()
+    override func viewDidLoad() {        //networkController.fetchAllCategories()
         //networkController.fetchAllProducts()
         
 //        networkController.fetchAllActiveUsers {
@@ -32,15 +33,14 @@ class UserListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func navigationUserSearchButtonClicked(_ sender: Any) {
+        if userSearchBar.isHidden == true {
+            userSearchBar.isHidden = false }
+        else { userSearchBar.isHidden = true }
     }
-    */
-
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.isHidden = true
+    }
+    
 }
