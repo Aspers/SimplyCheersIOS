@@ -18,20 +18,14 @@ class UserListViewController: UIViewController {
     var users = [User]()
     
     
-    override func viewDidLoad() {        //networkController.fetchAllCategories()
-        //networkController.fetchAllProducts()
-        
-//        networkController.fetchAllActiveUsers {
-//            (users) in
-//            guard let users = users else { return }
-//            print(users)
-//        }
-        networkController.fetchAllProducts {
-            (products) in
-            guard let products = products else { return }
-            print(products)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        networkController.fetchAllActiveUsers {
+            (users) in
+            if let users = users {
+                self.updateUI(with: users)
+            }
         }
-        users = createArray()
         userList.delegate = self
         userList.dataSource = self
     }
@@ -42,16 +36,12 @@ class UserListViewController: UIViewController {
         else { userSearchBar.isHidden = true }
     }
     
-    func createArray() -> [User] {
-        var temp = [User]()
-        let user1 = User(userId: 1, firstName: "Arjen", lastName: "Trinquet", balance: Decimal(10), fine: true)
-        let user2 = User(userId: 2, firstName: "Test", lastName: "Achternaam", balance: Decimal(-1), fine: false)
-        temp.append(user1)
-        temp.append(user2)
-        
-        return temp
+    func updateUI(with users: [User]){
+        DispatchQueue.main.async {
+            self.users = users
+            self.userList.reloadData()
+        }
     }
-    
 }
 
 extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
