@@ -15,4 +15,12 @@ struct User: Codable {
     var balance: Decimal
     var fine: Bool
     var nickname: String?
+    
+    init(userId: Int, firstName: String, lastName: String, balance: Decimal, fine: Bool) {
+        self.userId = userId
+        self.firstName = firstName
+        self.lastName = lastName
+        self.balance = balance
+        self.fine = fine
+    }
 }

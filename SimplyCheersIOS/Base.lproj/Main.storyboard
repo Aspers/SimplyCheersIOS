@@ -138,50 +138,50 @@
                                         <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                         <color key="sectionIndexBackgroundColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="90" id="qrH-oP-JZn" customClass="UserCell" customModule="SimplyCheersIOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="80" id="qrH-oP-JZn" customClass="UserCell" customModule="SimplyCheersIOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qrH-oP-JZn" id="wZt-YW-rd5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18z-Ks-OpN">
-                                                            <rect key="frame" x="20" y="10" width="70" height="70"/>
+                                                            <rect key="frame" x="20" y="12.5" width="55" height="55"/>
                                                             <color key="backgroundColor" red="0.35038843749999998" green="0.39376634360000001" blue="0.49805253739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="4dD-d6-Awv"/>
+                                                                <constraint firstAttribute="height" constant="55" id="4dD-d6-Awv"/>
                                                                 <constraint firstAttribute="width" secondItem="18z-Ks-OpN" secondAttribute="height" multiplier="1:1" id="oof-zF-ypo"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <color key="textColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Arjen Trinquet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0ba-qf-Dta">
-                                                            <rect key="frame" x="106" y="18" width="224" height="26.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <rect key="frame" x="91" y="12.5" width="242" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Bijnaam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tgw-Nx-biS">
-                                                            <rect key="frame" x="106" y="51.5" width="224" height="20.5"/>
+                                                            <rect key="frame" x="91" y="47" width="242" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 10,25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="75" translatesAutoresizingMaskIntoConstraints="NO" id="ldT-z9-C64" customClass="PaddingLabel" customModule="SimplyCheersIOS" customModuleProvider="target">
-                                                            <rect key="frame" x="338" y="30" width="60" height="30"/>
+                                                            <rect key="frame" x="341" y="25" width="57" height="30"/>
                                                             <color key="backgroundColor" red="0.35038843749999998" green="0.39376634360000001" blue="0.49805253739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="ldT-z9-C64" secondAttribute="bottom" constant="30" id="QUW-iF-Uyw"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ldT-z9-C64" secondAttribute="bottom" constant="25" id="QUW-iF-Uyw"/>
                                                         <constraint firstItem="0ba-qf-Dta" firstAttribute="leading" secondItem="18z-Ks-OpN" secondAttribute="trailing" constant="16" id="Vw1-Xz-Z5f"/>
-                                                        <constraint firstItem="ldT-z9-C64" firstAttribute="top" secondItem="wZt-YW-rd5" secondAttribute="top" constant="30" id="Wms-aj-rPY"/>
-                                                        <constraint firstItem="tgw-Nx-biS" firstAttribute="bottom" secondItem="18z-Ks-OpN" secondAttribute="bottom" constant="-8" id="WnC-Ci-8Ih"/>
-                                                        <constraint firstItem="0ba-qf-Dta" firstAttribute="top" secondItem="18z-Ks-OpN" secondAttribute="top" constant="8" id="fkd-qy-OyJ"/>
+                                                        <constraint firstItem="ldT-z9-C64" firstAttribute="top" secondItem="wZt-YW-rd5" secondAttribute="top" constant="25" id="Wms-aj-rPY"/>
+                                                        <constraint firstItem="tgw-Nx-biS" firstAttribute="bottom" secondItem="18z-Ks-OpN" secondAttribute="bottom" id="WnC-Ci-8Ih"/>
+                                                        <constraint firstItem="0ba-qf-Dta" firstAttribute="top" secondItem="18z-Ks-OpN" secondAttribute="top" id="fkd-qy-OyJ"/>
                                                         <constraint firstItem="tgw-Nx-biS" firstAttribute="leading" secondItem="18z-Ks-OpN" secondAttribute="trailing" constant="16" id="gYN-sm-kcl"/>
                                                         <constraint firstItem="18z-Ks-OpN" firstAttribute="leading" secondItem="wZt-YW-rd5" secondAttribute="leadingMargin" id="grO-SC-F9G"/>
                                                         <constraint firstItem="ldT-z9-C64" firstAttribute="leading" secondItem="0ba-qf-Dta" secondAttribute="trailing" constant="8" id="jPe-Cg-C9e"/>
@@ -192,7 +192,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="avatarLabel" destination="18z-Ks-OpN" id="3xn-57-Rbh"/>
-                                                    <outlet property="balanceLabel" destination="ldT-z9-C64" id="lQI-Ad-py1"/>
+                                                    <outlet property="balanceLabel" destination="ldT-z9-C64" id="vdT-I7-aBo"/>
                                                     <outlet property="nicknameLabel" destination="tgw-Nx-biS" id="obS-V9-wtS"/>
                                                     <outlet property="userNameLabel" destination="0ba-qf-Dta" id="CUC-YQ-O2A"/>
                                                 </connections>

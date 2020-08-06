@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BalanceLabel: UILabel {
+class PaddingLabel: UILabel {
 
     var topPadding: CGFloat = 5.0
     var bottomPadding: CGFloat = 5.0
