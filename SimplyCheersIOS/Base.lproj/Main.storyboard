@@ -11,7 +11,7 @@
         <scene sceneID="J93-Nv-Kv8">
             <objects>
                 <viewController id="QRj-iL-CKh" customClass="StoreViewController" customModule="SimplyCheersIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QBe-rC-XFn">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="QBe-rC-XFn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="1009.8214285714286"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Store Tab Bar View Controller-->
         <scene sceneID="cWf-Ae-hKv">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fkr-xv-lwu" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fkr-xv-lwu" customClass="StoreTabBarViewController" customModule="SimplyCheersIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j8y-D9-mm4">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -61,7 +61,7 @@
         <scene sceneID="4Be-pW-e1A">
             <objects>
                 <viewController id="dVp-ic-LGG" customClass="CartOverviewViewController" customModule="SimplyCheersIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RPi-J8-EMf">
+                    <view key="view" tag="2" contentMode="scaleToFill" id="RPi-J8-EMf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcI-Ql-Iq5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="229"/>
                                 <color key="barTintColor" red="0.35038843749999998" green="0.39376634360000001" blue="0.49805253739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -121,11 +121,11 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Vi-ao-F7e">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="273" width="414" height="623"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" placeholder="Zoek een gebruiker" showsCancelButton="YES" id="6nF-5D-EfB">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <color key="barTintColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -134,8 +134,8 @@
                                             <string>Title</string>
                                         </scopeButtonTitles>
                                     </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-rk-oj1">
-                                        <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-rk-oj1">
+                                        <rect key="frame" x="0.0" y="56" width="414" height="567"/>
                                         <color key="sectionIndexBackgroundColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="80" id="qrH-oP-JZn" customClass="UserCell" customModule="SimplyCheersIOS" customModuleProvider="target">
@@ -202,6 +202,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="HAN-rk-oj1" firstAttribute="top" secondItem="6nF-5D-EfB" secondAttribute="bottom" id="BR8-pr-G9F"/>
+                                    <constraint firstAttribute="trailing" secondItem="HAN-rk-oj1" secondAttribute="trailing" id="Ghh-J5-Ufp"/>
+                                    <constraint firstItem="HAN-rk-oj1" firstAttribute="leading" secondItem="2Vi-ao-F7e" secondAttribute="leading" id="eAt-2d-nOy"/>
                                 </constraints>
                             </stackView>
                         </subviews>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class UserListViewController: UIViewController {
 
@@ -16,10 +17,18 @@ class UserListViewController: UIViewController {
     
     let networkController = NetworkController()
     var users = [User]()
-    
+    var animationView: AnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userSearchBar.isHidden = true
+        animationView = .init(name: "loadingBeer")
+        animationView?.loopMode = .loop
+        animationView?.animationSpeed = 2
+        animationView?.frame = view.bounds
+        view.addSubview(animationView!)
+        
+        self.loading()
         networkController.fetchAllActiveUsers {
             (users) in
             if let users = users {
@@ -40,7 +49,20 @@ class UserListViewController: UIViewController {
         DispatchQueue.main.async {
             self.users = users
             self.userList.reloadData()
+            self.doneLoading()
         }
+    }
+    
+    private func loading() {
+        userList.isHidden = true
+        animationView?.isHidden = false
+        animationView?.play()
+    }
+    
+    private func doneLoading() {
+        animationView?.stop()
+        animationView?.isHidden = true
+        userList.isHidden = false
     }
 }
 

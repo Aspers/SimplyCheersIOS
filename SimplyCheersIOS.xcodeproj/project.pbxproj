@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990E6EAB73BA41806D8998E5 /* Pods_SimplyCheersIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10D40F8534EBA94340B62B2 /* Pods_SimplyCheersIOS.framework */; };
 		D433EDB324DAFF3B004163C9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */; };
 		D433EDB524DB0297004163C9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB424DB0297004163C9 /* UserCell.swift */; };
+		D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */; };
+		D45D5E0224DD5C4100A2DDB5 /* loadingBeer.json in Resources */ = {isa = PBXBuildFile; fileRef = D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */; };
 		D494D2B724D5B64B0019D089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2B624D5B64B0019D089 /* AppDelegate.swift */; };
 		D494D2B924D5B64B0019D089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2B824D5B64B0019D089 /* SceneDelegate.swift */; };
 		D494D2BE24D5B64B0019D089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494D2BC24D5B64B0019D089 /* Main.storyboard */; };
@@ -25,8 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EE1C58FA51B07BA3C13BB30 /* Pods-SimplyCheersIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCheersIOS.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		82368497DEB3583DCCCD1B11 /* Pods-SimplyCheersIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCheersIOS.release.xcconfig"; path = "Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS.release.xcconfig"; sourceTree = "<group>"; };
 		D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D433EDB424DB0297004163C9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabBarViewController.swift; sourceTree = "<group>"; };
+		D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingBeer.json; sourceTree = "<group>"; };
 		D494D2B324D5B64B0019D089 /* SimplyCheersIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCheersIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494D2B624D5B64B0019D089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494D2B824D5B64B0019D089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +49,7 @@
 		D494D2DB24D9D9B70019D089 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		D494D2DD24D9DC950019D089 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		D494D2DF24D9DD650019D089 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F10D40F8534EBA94340B62B2 /* Pods_SimplyCheersIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCheersIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +57,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990E6EAB73BA41806D8998E5 /* Pods_SimplyCheersIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D45D5DF924DD52A700A2DDB5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */,
+				D494D2BF24D5B64D0019D089 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		D45D5DFA24DD52E400A2DDB5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D494D2B624D5B64B0019D089 /* AppDelegate.swift */,
+				D494D2B824D5B64B0019D089 /* SceneDelegate.swift */,
+				D494D2C124D5B64D0019D089 /* LaunchScreen.storyboard */,
+				D494D2C424D5B64D0019D089 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D494D2AA24D5B64B0019D089 = {
 			isa = PBXGroup;
 			children = (
 				D494D2B524D5B64B0019D089 /* SimplyCheersIOS */,
 				D494D2B424D5B64B0019D089 /* Products */,
+				D5334C26C3C9D65CCD4B74DD /* Pods */,
+				F4D03454A379B31DDE30FBA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,16 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				D494D2D624D9BD910019D089 /* Views */,
-				D494D2D524D9BD780019D089 /* Other Controllers */,
 				D494D2D424D9BD700019D089 /* Model Controllers */,
 				D494D2D324D9BD550019D089 /* Models */,
 				D494D2D224D9BD410019D089 /* View Controllers */,
-				D494D2B624D5B64B0019D089 /* AppDelegate.swift */,
-				D494D2B824D5B64B0019D089 /* SceneDelegate.swift */,
+				D45D5DFA24DD52E400A2DDB5 /* Supporting Files */,
+				D45D5DF924DD52A700A2DDB5 /* Assets */,
 				D494D2BC24D5B64B0019D089 /* Main.storyboard */,
-				D494D2BF24D5B64D0019D089 /* Assets.xcassets */,
-				D494D2C124D5B64D0019D089 /* LaunchScreen.storyboard */,
-				D494D2C424D5B64D0019D089 /* Info.plist */,
 			);
 			path = SimplyCheersIOS;
 			sourceTree = "<group>";
@@ -95,6 +122,7 @@
 				D494D2CC24D9AB330019D089 /* UserListViewController.swift */,
 				D494D2CE24D9AB510019D089 /* StoreViewController.swift */,
 				D494D2D024D9AB5C0019D089 /* CartOverviewViewController.swift */,
+				D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -113,16 +141,9 @@
 		D494D2D424D9BD700019D089 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = "Model Controllers";
-			sourceTree = "<group>";
-		};
-		D494D2D524D9BD780019D089 /* Other Controllers */ = {
-			isa = PBXGroup;
-			children = (
 				D494D2DD24D9DC950019D089 /* NetworkController.swift */,
 			);
-			path = "Other Controllers";
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		D494D2D624D9BD910019D089 /* Views */ = {
@@ -134,6 +155,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D5334C26C3C9D65CCD4B74DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EE1C58FA51B07BA3C13BB30 /* Pods-SimplyCheersIOS.debug.xcconfig */,
+				82368497DEB3583DCCCD1B11 /* Pods-SimplyCheersIOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F4D03454A379B31DDE30FBA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F10D40F8534EBA94340B62B2 /* Pods_SimplyCheersIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D494D2C724D5B64D0019D089 /* Build configuration list for PBXNativeTarget "SimplyCheersIOS" */;
 			buildPhases = (
+				316CC73ED42D07C8715A586C /* [CP] Check Pods Manifest.lock */,
 				D494D2AF24D5B64B0019D089 /* Sources */,
 				D494D2B024D5B64B0019D089 /* Frameworks */,
 				D494D2B124D5B64B0019D089 /* Resources */,
+				476ED5A0F2C626B9DEEE327B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45D5E0224DD5C4100A2DDB5 /* loadingBeer.json in Resources */,
 				D494D2C324D5B64D0019D089 /* LaunchScreen.storyboard in Resources */,
 				D494D2C024D5B64D0019D089 /* Assets.xcassets in Resources */,
 				D494D2BE24D5B64B0019D089 /* Main.storyboard in Resources */,
@@ -200,12 +241,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		316CC73ED42D07C8715A586C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimplyCheersIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		476ED5A0F2C626B9DEEE327B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D494D2AF24D5B64B0019D089 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D494D2B724D5B64B0019D089 /* AppDelegate.swift in Sources */,
+				D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */,
 				D494D2E024D9DD650019D089 /* Category.swift in Sources */,
 				D494D2CD24D9AB330019D089 /* UserListViewController.swift in Sources */,
 				D494D2D124D9AB5C0019D089 /* CartOverviewViewController.swift in Sources */,
@@ -358,16 +442,20 @@
 		};
 		D494D2C824D5B64D0019D089 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EE1C58FA51B07BA3C13BB30 /* Pods-SimplyCheersIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SimplyCheersIOS/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "SimplyCheersIOS/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.simplycheers.SimplyCheersIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -375,16 +463,20 @@
 		};
 		D494D2C924D5B64D0019D089 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82368497DEB3583DCCCD1B11 /* Pods-SimplyCheersIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SimplyCheersIOS/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "SimplyCheersIOS/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.simplycheers.SimplyCheersIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
