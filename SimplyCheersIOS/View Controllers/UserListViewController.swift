@@ -15,7 +15,7 @@ class UserListViewController: UIViewController {
     @IBOutlet var userSearchBar: UISearchBar!
     @IBOutlet var userList: UITableView!
     
-    let networkController = NetworkController()
+    let userController = UserController()
     var users = [User]()
     var animationView: AnimationView?
     
@@ -29,7 +29,7 @@ class UserListViewController: UIViewController {
         view.addSubview(animationView!)
         
         self.loading()
-        networkController.fetchAllActiveUsers {
+        userController.fetchAllActiveUsers {
             (users) in
             if let users = users {
                 self.updateUI(with: users)

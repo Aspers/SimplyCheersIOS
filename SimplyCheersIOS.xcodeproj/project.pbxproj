@@ -12,6 +12,9 @@
 		D433EDB524DB0297004163C9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB424DB0297004163C9 /* UserCell.swift */; };
 		D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */; };
 		D45D5E0224DD5C4100A2DDB5 /* loadingBeer.json in Resources */ = {isa = PBXBuildFile; fileRef = D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */; };
+		D45D5E0424DD869700A2DDB5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D5E0324DD869700A2DDB5 /* UserController.swift */; };
+		D45D5E0624DD86FC00A2DDB5 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D5E0524DD86FC00A2DDB5 /* ProductController.swift */; };
+		D45D5E0824DD872300A2DDB5 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D5E0724DD872300A2DDB5 /* CategoryController.swift */; };
 		D494D2B724D5B64B0019D089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2B624D5B64B0019D089 /* AppDelegate.swift */; };
 		D494D2B924D5B64B0019D089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2B824D5B64B0019D089 /* SceneDelegate.swift */; };
 		D494D2BE24D5B64B0019D089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494D2BC24D5B64B0019D089 /* Main.storyboard */; };
@@ -23,7 +26,6 @@
 		D494D2D824D9D9950019D089 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2D724D9D9950019D089 /* Product.swift */; };
 		D494D2DA24D9D9A00019D089 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2D924D9D9A00019D089 /* User.swift */; };
 		D494D2DC24D9D9B70019D089 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2DB24D9D9B70019D089 /* Cart.swift */; };
-		D494D2DE24D9DC950019D089 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2DD24D9DC950019D089 /* NetworkController.swift */; };
 		D494D2E024D9DD650019D089 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2DF24D9DD650019D089 /* Category.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,9 @@
 		D433EDB424DB0297004163C9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabBarViewController.swift; sourceTree = "<group>"; };
 		D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingBeer.json; sourceTree = "<group>"; };
+		D45D5E0324DD869700A2DDB5 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		D45D5E0524DD86FC00A2DDB5 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
+		D45D5E0724DD872300A2DDB5 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		D494D2B324D5B64B0019D089 /* SimplyCheersIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCheersIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494D2B624D5B64B0019D089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494D2B824D5B64B0019D089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +52,6 @@
 		D494D2D724D9D9950019D089 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D494D2D924D9D9A00019D089 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D494D2DB24D9D9B70019D089 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
-		D494D2DD24D9DC950019D089 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		D494D2DF24D9DD650019D089 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F10D40F8534EBA94340B62B2 /* Pods_SimplyCheersIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCheersIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -141,7 +145,9 @@
 		D494D2D424D9BD700019D089 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D494D2DD24D9DC950019D089 /* NetworkController.swift */,
+				D45D5E0324DD869700A2DDB5 /* UserController.swift */,
+				D45D5E0524DD86FC00A2DDB5 /* ProductController.swift */,
+				D45D5E0724DD872300A2DDB5 /* CategoryController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -292,6 +298,8 @@
 				D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */,
 				D494D2E024D9DD650019D089 /* Category.swift in Sources */,
 				D494D2CD24D9AB330019D089 /* UserListViewController.swift in Sources */,
+				D45D5E0424DD869700A2DDB5 /* UserController.swift in Sources */,
+				D45D5E0824DD872300A2DDB5 /* CategoryController.swift in Sources */,
 				D494D2D124D9AB5C0019D089 /* CartOverviewViewController.swift in Sources */,
 				D494D2CF24D9AB510019D089 /* StoreViewController.swift in Sources */,
 				D494D2B924D5B64B0019D089 /* SceneDelegate.swift in Sources */,
@@ -299,7 +307,7 @@
 				D494D2DA24D9D9A00019D089 /* User.swift in Sources */,
 				D433EDB524DB0297004163C9 /* UserCell.swift in Sources */,
 				D494D2DC24D9D9B70019D089 /* Cart.swift in Sources */,
-				D494D2DE24D9DC950019D089 /* NetworkController.swift in Sources */,
+				D45D5E0624DD86FC00A2DDB5 /* ProductController.swift in Sources */,
 				D433EDB324DAFF3B004163C9 /* PaddingLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
