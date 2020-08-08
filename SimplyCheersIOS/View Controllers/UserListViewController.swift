@@ -12,7 +12,6 @@ import Lottie
 class UserListViewController: UIViewController {
 
     @IBOutlet var searchContainerView: UIView!
-    @IBOutlet var navigationUserSearchButton: UIBarButtonItem!
     @IBOutlet var userList: UITableView!
     @IBOutlet var mainUserSelectionView: UIStackView!
     
@@ -51,6 +50,10 @@ class UserListViewController: UIViewController {
         userList.delegate = self
         userList.dataSource = self
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        searchController.isActive = false
     }
     
     func updateUI(with users: [User]){
