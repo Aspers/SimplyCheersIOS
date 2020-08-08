@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcI-Ql-Iq5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="229"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="barTintColor" red="0.35038843749999998" green="0.39376634360000001" blue="0.49805253739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -105,37 +105,21 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Gebruikers" leftItemsSupplementBackButton="YES" id="gZT-v0-U5b">
-                                        <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="lzq-iS-XAV">
-                                                <color key="tintColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <connections>
-                                                    <action selector="navigationUserSearchButtonClicked:" destination="1b8-Vv-zoe" id="ZYz-gi-7IG"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Item" image="list.bullet" catalog="system" id="Eda-wQ-lfD">
-                                                <color key="tintColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
+                                    <navigationItem title="Gebruikers" leftItemsSupplementBackButton="YES" id="gZT-v0-U5b"/>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Vi-ao-F7e">
-                                <rect key="frame" x="0.0" y="273" width="414" height="623"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FZS-0c-YUu">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Zoek een gebruiker" showsCancelButton="YES" id="6nF-5D-EfB">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                        <color key="barTintColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <scopeButtonTitles>
-                                            <string>Title</string>
-                                            <string>Title</string>
-                                        </scopeButtonTitles>
-                                    </searchBar>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3k-ez-NWX">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2g1-qR-JEs"/>
+                                        </constraints>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-rk-oj1">
-                                        <rect key="frame" x="0.0" y="56" width="414" height="567"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="675"/>
                                         <color key="sectionIndexBackgroundColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="80" id="qrH-oP-JZn" customClass="UserCell" customModule="SimplyCheersIOS" customModuleProvider="target">
@@ -201,9 +185,13 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HAN-rk-oj1" firstAttribute="top" secondItem="6nF-5D-EfB" secondAttribute="bottom" id="BR8-pr-G9F"/>
-                                    <constraint firstAttribute="trailing" secondItem="HAN-rk-oj1" secondAttribute="trailing" id="Ghh-J5-Ufp"/>
-                                    <constraint firstItem="HAN-rk-oj1" firstAttribute="leading" secondItem="2Vi-ao-F7e" secondAttribute="leading" id="eAt-2d-nOy"/>
+                                    <constraint firstAttribute="trailing" secondItem="g3k-ez-NWX" secondAttribute="trailing" id="2xC-wz-mA9"/>
+                                    <constraint firstAttribute="trailing" secondItem="HAN-rk-oj1" secondAttribute="trailing" id="AOG-T8-fBB"/>
+                                    <constraint firstItem="HAN-rk-oj1" firstAttribute="top" secondItem="g3k-ez-NWX" secondAttribute="bottom" id="IGy-H3-jaK"/>
+                                    <constraint firstItem="g3k-ez-NWX" firstAttribute="leading" secondItem="FZS-0c-YUu" secondAttribute="leading" id="XDo-7i-0jG"/>
+                                    <constraint firstAttribute="bottom" secondItem="HAN-rk-oj1" secondAttribute="bottom" id="YvG-PM-l5p"/>
+                                    <constraint firstItem="HAN-rk-oj1" firstAttribute="leading" secondItem="FZS-0c-YUu" secondAttribute="leading" id="iQb-uG-QhM"/>
+                                    <constraint firstItem="g3k-ez-NWX" firstAttribute="top" secondItem="FZS-0c-YUu" secondAttribute="top" id="kBG-L4-feb"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -212,22 +200,23 @@
                         <constraints>
                             <constraint firstItem="mcI-Ql-Iq5" firstAttribute="top" secondItem="8m7-J5-In7" secondAttribute="top" id="33Y-Jw-5JL"/>
                             <constraint firstItem="mcI-Ql-Iq5" firstAttribute="trailing" secondItem="8m7-J5-In7" secondAttribute="trailing" id="39U-oP-osN"/>
-                            <constraint firstItem="2Vi-ao-F7e" firstAttribute="leading" secondItem="8m7-J5-In7" secondAttribute="leading" id="8xv-gH-EiE"/>
-                            <constraint firstItem="2Vi-ao-F7e" firstAttribute="top" secondItem="mcI-Ql-Iq5" secondAttribute="bottom" id="Dme-91-4N0"/>
-                            <constraint firstAttribute="bottom" secondItem="2Vi-ao-F7e" secondAttribute="bottom" id="bOL-VP-9iL"/>
-                            <constraint firstAttribute="trailing" secondItem="2Vi-ao-F7e" secondAttribute="trailing" id="nm6-pM-jSt"/>
+                            <constraint firstItem="FZS-0c-YUu" firstAttribute="leading" secondItem="8m7-J5-In7" secondAttribute="leading" id="Aws-2J-LA8"/>
+                            <constraint firstItem="FZS-0c-YUu" firstAttribute="bottom" secondItem="8m7-J5-In7" secondAttribute="bottom" id="Hl7-Sg-EaC"/>
                             <constraint firstItem="mcI-Ql-Iq5" firstAttribute="leading" secondItem="8m7-J5-In7" secondAttribute="leading" id="rOQ-1S-o0x"/>
+                            <constraint firstItem="FZS-0c-YUu" firstAttribute="trailing" secondItem="8m7-J5-In7" secondAttribute="trailing" id="tca-DH-edk"/>
+                            <constraint firstItem="FZS-0c-YUu" firstAttribute="top" secondItem="mcI-Ql-Iq5" secondAttribute="bottom" id="tpR-2o-8KW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8m7-J5-In7"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="" image="person.2.fill" catalog="system" selectedImage="person.2.fill" id="JfX-Ao-hal"/>
                     <connections>
-                        <outlet property="navigationUserSearchButton" destination="lzq-iS-XAV" id="K3L-GE-kAv"/>
+                        <outlet property="mainUserSelectionView" destination="FZS-0c-YUu" id="o3E-qa-LFh"/>
+                        <outlet property="searchContainerView" destination="g3k-ez-NWX" id="0Je-WS-pvS"/>
                         <outlet property="userList" destination="HAN-rk-oj1" id="Xo3-lY-uod"/>
-                        <outlet property="userSearchBar" destination="6nF-5D-EfB" id="faQ-YH-NNY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LzR-F2-VoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <command title="Item" id="ath-X8-nSb"/>
             </objects>
             <point key="canvasLocation" x="-846.37681159420299" y="1009.8214285714286"/>
         </scene>
@@ -235,8 +224,6 @@
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
     </resources>
 </document>

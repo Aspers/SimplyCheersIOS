@@ -11,17 +11,27 @@ import Lottie
 
 class UserListViewController: UIViewController {
 
+    @IBOutlet var searchContainerView: UIView!
     @IBOutlet var navigationUserSearchButton: UIBarButtonItem!
-    @IBOutlet var userSearchBar: UISearchBar!
     @IBOutlet var userList: UITableView!
+    @IBOutlet var mainUserSelectionView: UIStackView!
     
-    let userController = UserController()
+    var userController = UserController()
+    var searchController: UISearchController!
     var users = [User]()
+    var filteredUsers = [User]()
     var animationView: AnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userSearchBar.isHidden = true
+        
+        // Setup searchController
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchContainerView.addSubview(searchController.searchBar)
+        searchController.searchBar.delegate = self
+        
         animationView = .init(name: "loadingBeer")
         animationView?.loopMode = .loop
         animationView?.animationSpeed = 2
@@ -29,32 +39,48 @@ class UserListViewController: UIViewController {
         view.addSubview(animationView!)
         
         self.loading()
+        
         userController.fetchAllActiveUsers {
             (users) in
             if let users = users {
                 self.updateUI(with: users)
             }
         }
+        
+        // Delegates instellen
         userList.delegate = self
         userList.dataSource = self
-    }
-    
-    @IBAction func navigationUserSearchButtonClicked(_ sender: Any) {
-        if userSearchBar.isHidden == true {
-            userSearchBar.isHidden = false }
-        else { userSearchBar.isHidden = true }
+        
     }
     
     func updateUI(with users: [User]){
         DispatchQueue.main.async {
             self.users = users
+            self.filteredUsers = users
             self.userList.reloadData()
             self.doneLoading()
         }
     }
     
+    func filterUserListToSearchText(_ searchText: String) {
+        
+        if searchText.count > 0 {
+            
+            filteredUsers = users
+            filteredUsers = users.filter { (user: User) -> Bool in
+                let name = "\(user.firstName) \(user.lastName)"
+                return name.lowercased().contains(searchText.lowercased())
+            }
+            userList.reloadData()
+        }
+        if searchText.count == 0 {
+            filteredUsers = users
+            userList.reloadData()
+        }
+    }
+    
     private func loading() {
-        userList.isHidden = true
+        mainUserSelectionView.isHidden = true
         animationView?.isHidden = false
         animationView?.play()
     }
@@ -62,19 +88,53 @@ class UserListViewController: UIViewController {
     private func doneLoading() {
         animationView?.stop()
         animationView?.isHidden = true
-        userList.isHidden = false
+        mainUserSelectionView.isHidden = false
     }
 }
 
 extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // TableView functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return filteredUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let user = users[indexPath.row]
+        let user = filteredUsers[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
         cell.setupCell(user: user)
         return cell
     }
+    
 }
+
+extension UserListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchController.isActive = false
+        if let searchText = searchBar.text {
+            filterUserListToSearchText(searchText)
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.isActive = false
+        
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            filteredUsers = users
+            userList.reloadData()
+        }
+    }
+    
+}
+
+extension UserListViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text{
+            filterUserListToSearchText(searchText)
+        }
+    }
+    
+}
+
