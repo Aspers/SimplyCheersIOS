@@ -10,6 +10,7 @@ import Foundation
 
 class CategoryController {
     
+    static let shared = CategoryController()
     var baseURL = URL(string: "https://cheersappapi.azurewebsites.net/api")!
     var jsonDecoder = JSONDecoder()
 

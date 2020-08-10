@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class ProductController {
     
+    static let shared = ProductController()
     var baseURL = URL(string: "https://cheersappapi.azurewebsites.net/api")!
     var jsonDecoder = JSONDecoder()
     
@@ -26,6 +28,19 @@ class ProductController {
             }
         }
 
+        task.resume()
+    }
+    
+    func fetchProductImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            if let data = data, let image = UIImage(data:data) {
+                completion(image)
+            } else {
+                print("Failed to fetch product image")
+                completion(UIImage(named: "drink"))
+            }
+        }
         task.resume()
     }
     

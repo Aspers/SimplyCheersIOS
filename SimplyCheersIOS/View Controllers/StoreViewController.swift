@@ -15,11 +15,11 @@ class StoreViewController: UIViewController {
     @IBOutlet var searchContainerView: UIView!
     @IBOutlet var mainProductSelectionView: UIStackView!
     
-    var productController = ProductController()
-    var searchController: UISearchController!
-    var products = [Product]()
-    var filteredProducts = [Product]()
-    var animationView: AnimationView?
+    private var searchController: UISearchController!
+    private var categories = [Category]()
+    private var products = [Product]()
+    private var filteredProducts = [Product]()
+    private var animationView: AnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,9 @@ class StoreViewController: UIViewController {
         searchController.searchBar.barTintColor = UIColor(red: 215/255, green: 244/255, blue: 240/255, alpha: 1)
         searchController.searchBar.delegate = self
         
+        //productList.refreshControl = refreshControl
+        //refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
         animationView = .init(name: "loadingBeer")
         animationView?.loopMode = .loop
         animationView?.animationSpeed = 2
@@ -38,33 +41,34 @@ class StoreViewController: UIViewController {
         view.addSubview(animationView!)
         
         self.loading()
-            
-        productController.fetchAllProducts {
-            (products) in
-            if let products = products {
-                self.updateUI(with: products)
-            }
-        }
-            
+        self.fetchData()
+
         // Delegates instellen
         productList.delegate = self
         productList.dataSource = self
-            
+        
     }
-        
-        override func viewWillDisappear(_ animated: Bool) {
-            searchController.isActive = false
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        searchController.isActive = false
+    }
+    
+    func updateUI(with products: [Product]){
+        DispatchQueue.main.async {
+            self.products = products
+            self.filteredProducts = products
+            self.productList.reloadData()
+            self.doneLoading()
         }
-        
-        func updateUI(with products: [Product]){
-            DispatchQueue.main.async {
-                self.products = products
-                self.filteredProducts = products
-                self.productList.reloadData()
-                self.doneLoading()
-            }
+    }
+    
+    func updateCategories(with categories: [Category]) {
+        DispatchQueue.main.async {
+            self.categories = categories
+            print(self.categories)
         }
-        
+    }
+    
     func filterProductListToSearchText(_ searchText: String) {
         
         if searchText.count > 0 {
@@ -81,6 +85,24 @@ class StoreViewController: UIViewController {
         }
     }
     
+    private func fetchData() {
+        CategoryController.shared.fetchAllCategories {
+            (categories) in
+            if let categories = categories {
+                self.updateCategories(with: categories)
+            }
+        }
+        
+        ProductController.shared.fetchAllProducts {
+            (products) in
+            if let products = products {
+                self.updateUI(with: products)
+                
+            }
+        }
+        
+    }
+    
     private func loading() {
         mainProductSelectionView.isHidden = true
         animationView?.isHidden = false
@@ -92,7 +114,7 @@ class StoreViewController: UIViewController {
         animationView?.isHidden = true
         mainProductSelectionView.isHidden = false
     }
-
+    
 }
 
 extension StoreViewController: UITableViewDataSource, UITableViewDelegate {
@@ -105,6 +127,21 @@ extension StoreViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let product = filteredProducts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCell
+        if product.imageURL != nil {
+            ProductController.shared.fetchProductImage(url: product.imageURL!) {
+                (image) in
+                if let image = image {
+                    DispatchQueue.main.async {
+                        if let currentIndexPath = tableView.indexPath(for: cell), currentIndexPath != indexPath {
+                            return
+                        }
+                        cell.productImageView?.image = image
+                    }
+                }
+            }
+        } else {
+            cell.productImageView?.image = UIImage(named: "drink")
+        }
         cell.setupCell(product: product)
         return cell
     }
