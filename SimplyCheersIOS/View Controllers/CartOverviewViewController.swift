@@ -30,6 +30,11 @@ class CartOverviewViewController: UIViewController {
         } else {
             selectedUserName.text = "\(selectedUser!.firstName) \(selectedUser!.lastName)"
             selectedUserBalance.text = String(format: "€ %.2f", Double(truncating: selectedUser!.balance as NSNumber))
+            if selectedUser!.balance <= 0 {
+                selectedUserBalance.textColor = UIColor.red
+            } else {
+                selectedUserBalance.textColor = UIColor.black
+            }
         }
     }
 
