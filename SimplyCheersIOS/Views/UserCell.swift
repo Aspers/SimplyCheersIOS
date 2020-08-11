@@ -20,11 +20,7 @@ class UserCell: UITableViewCell {
         userNameLabel.text = user.firstName + " " + user.lastName
         avatarLabel.text = (user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
         nicknameLabel.text = user.nickname
-        if user.balance.isLessThanOrEqualTo(Decimal(0)) {
-            balanceLabel.text = String(format: "-‎€ %.2f", Double(truncating: abs(user.balance) as NSNumber))
-        } else {
-            balanceLabel.text = String(format: "‎€ %.2f", Double(truncating: user.balance as NSNumber))
-        }
+        balanceLabel.text = String(format: "€ %.2f", Double(truncating: user.balance as NSNumber))
         
         // Formatting van balance label
         balanceLabel.layer.cornerRadius = balanceLabel.bounds.size.height/2
