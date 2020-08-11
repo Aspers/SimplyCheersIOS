@@ -10,8 +10,17 @@ import Foundation
 
 class UserController {
     
+    static let shared = UserController()
     var baseURL = URL(string: "https://cheersappapi.azurewebsites.net/api")!
     var jsonDecoder = JSONDecoder()
+    
+    static let selectedUserUpdatedNotification = Notification.Name("UserController.selectedUserUpdated")
+    var selectedUser: User! = nil {
+        didSet {
+            NotificationCenter.default.post(name: UserController.selectedUserUpdatedNotification, object: nil)
+        }
+    }
+    
     
     func fetchAllActiveUsers(completion: @escaping ([User]?) -> Void) {
         let userUrl = baseURL.appendingPathComponent("users").appendingPathComponent("active")

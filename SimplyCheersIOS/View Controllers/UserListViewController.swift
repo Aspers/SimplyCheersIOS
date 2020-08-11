@@ -15,7 +15,6 @@ class UserListViewController: UIViewController {
     @IBOutlet var userList: UITableView!
     @IBOutlet var mainUserSelectionView: UIStackView!
     
-    var userController = UserController()
     var searchController: UISearchController!
     var users = [User]()
     var filteredUsers = [User]()
@@ -39,7 +38,7 @@ class UserListViewController: UIViewController {
         
         self.loading()
         
-        userController.fetchAllActiveUsers {
+        UserController.shared.fetchAllActiveUsers {
             (users) in
             if let users = users {
                 self.updateUI(with: users)
@@ -107,6 +106,13 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
         cell.setupCell(user: user)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedUser = self.filteredUsers[indexPath.row]
+        if UserController.shared.selectedUser == nil || selectedUser.userId != UserController.shared.selectedUser.userId {
+            UserController.shared.selectedUser = selectedUser
+        }
     }
     
 }

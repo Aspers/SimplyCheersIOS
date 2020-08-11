@@ -194,6 +194,9 @@
                     <tabBarItem key="tabBarItem" tag="2" title="" image="cart.fill" catalog="system" badgeValue="123" selectedImage="cart.fill" id="Lik-8J-5yg">
                         <color key="badgeColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="selectedUserName" destination="kJ1-Fp-hAT" id="Muv-rp-RTW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p94-QP-MD7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
