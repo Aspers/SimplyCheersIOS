@@ -11,6 +11,7 @@
 		D433EDB324DAFF3B004163C9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */; };
 		D433EDB524DB0297004163C9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB424DB0297004163C9 /* UserCell.swift */; };
 		D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */; };
+		D43B1C4424E43E2E00766FC5 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43B1C4324E43E2E00766FC5 /* CartCell.swift */; };
 		D453FBA524E1C12E005C751C /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453FBA424E1C12E005C751C /* CartController.swift */; };
 		D45D5E0224DD5C4100A2DDB5 /* loadingBeer.json in Resources */ = {isa = PBXBuildFile; fileRef = D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */; };
 		D45D5E0424DD869700A2DDB5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D5E0324DD869700A2DDB5 /* UserController.swift */; };
@@ -39,6 +40,7 @@
 		D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D433EDB424DB0297004163C9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabBarViewController.swift; sourceTree = "<group>"; };
+		D43B1C4324E43E2E00766FC5 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		D453FBA424E1C12E005C751C /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
 		D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingBeer.json; sourceTree = "<group>"; };
 		D45D5E0324DD869700A2DDB5 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				D433EDB424DB0297004163C9 /* UserCell.swift */,
 				D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */,
 				D45D5E0924DEF76700A2DDB5 /* ProductCell.swift */,
+				D43B1C4324E43E2E00766FC5 /* CartCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D494D2B724D5B64B0019D089 /* AppDelegate.swift in Sources */,
+				D43B1C4424E43E2E00766FC5 /* CartCell.swift in Sources */,
 				D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */,
 				D494D2E024D9DD650019D089 /* Category.swift in Sources */,
 				D494D2CD24D9AB330019D089 /* UserListViewController.swift in Sources */,

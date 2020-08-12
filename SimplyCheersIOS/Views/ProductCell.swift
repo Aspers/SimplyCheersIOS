@@ -15,6 +15,8 @@ class ProductCell: UITableViewCell {
     @IBOutlet var productPriceLabel: UILabel!
     @IBOutlet var productImageView: UIImageView!
     
+    var product: Product!
+    
     func setupCell(product: Product) {
         
         // Set container shadow
@@ -27,9 +29,17 @@ class ProductCell: UITableViewCell {
         productContainer.layer.rasterizationScale = UIScreen.main.scale
         
         // Set product values
+        self.product = product
         productNameLabel.text = product.name
         productPriceLabel.text = String(format: "‎€ %.2f", Double(truncating: product.price as NSNumber))
         
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.addToCart))
+        self.productContainer.addGestureRecognizer(gesture)
+        
+    }
+    
+    @objc func addToCart(sender: UITapGestureRecognizer) {
+        CartController.shared.cart.addProduct(product: product)
     }
     
 }

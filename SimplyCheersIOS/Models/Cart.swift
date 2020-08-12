@@ -51,6 +51,6 @@ struct Cart {
     
     private func isInCart(product: Product) -> Bool {
         let items = self.cartItems.filter { $0.product.productId == product.productId }
-        return items.isEmpty
+        return !items.isEmpty
     }
 }

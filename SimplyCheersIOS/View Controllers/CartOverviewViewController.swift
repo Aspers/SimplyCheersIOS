@@ -21,6 +21,9 @@ class CartOverviewViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setSelectedUser), name: UserController.selectedUserUpdatedNotification, object: nil)
         setSelectedUser()
         cartTotal.text = "\(CartController.shared.cart.totalItems)"
+        
+        cartList.delegate = self
+        cartList.dataSource = self
     }
     
     @objc func setSelectedUser() {
@@ -38,5 +41,18 @@ class CartOverviewViewController: UIViewController {
             }
         }
     }
+}
 
+extension CartOverviewViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = CartController.shared.cart.cartItems[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell") as! CartCell
+        cell.setupCell(item: item)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CartController.shared.cart.cartItems.count
+    }
 }

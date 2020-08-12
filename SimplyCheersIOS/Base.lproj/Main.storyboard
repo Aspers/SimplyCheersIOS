@@ -76,6 +76,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstItem="efG-YJ-XZj" firstAttribute="top" secondItem="Chf-df-Yzt" secondAttribute="top" constant="10" id="55c-Zu-gMT"/>
                                                                 <constraint firstAttribute="trailing" secondItem="QMZ-Pq-9SP" secondAttribute="trailing" constant="10" id="9MK-hS-juf"/>
@@ -101,7 +102,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="productContainer" destination="Chf-df-Yzt" id="psF-iV-qCa"/>
+                                                    <outlet property="productContainer" destination="Chf-df-Yzt" id="lHf-7j-BbG"/>
                                                     <outlet property="productImageView" destination="efG-YJ-XZj" id="Zsk-yz-ELM"/>
                                                     <outlet property="productNameLabel" destination="9cF-DR-A1b" id="B94-ZQ-ElM"/>
                                                     <outlet property="productPriceLabel" destination="a1k-ao-Q5u" id="0CH-nB-q2S"/>
@@ -204,9 +205,76 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-Bt-jx4">
-                                <rect key="frame" x="20" y="150" width="374" height="601"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="601"/>
                                 <color key="backgroundColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartCell" id="Srg-PM-GVE" customClass="CartCell" customModule="SimplyCheersIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Srg-PM-GVE" id="A1e-Vf-CcO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMH-tS-qHp">
+                                                    <rect key="frame" x="20" y="11.5" width="110" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEr-Nn-q78">
+                                                    <rect key="frame" x="374.5" y="11" width="19.5" height="22"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="cartItemTrashButtonTapped:" destination="Srg-PM-GVE" eventType="touchUpInside" id="QOR-be-WBZ"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMa-Vq-Pzb">
+                                                    <rect key="frame" x="336.5" y="11" width="18" height="22"/>
+                                                    <state key="normal" image="plus" catalog="system">
+                                                        <attributedString key="attributedTitle"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="cartItemPlusButtonTapped:" destination="Srg-PM-GVE" eventType="touchUpInside" id="5nC-IP-5Od"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsD-4j-aDD">
+                                                    <rect key="frame" x="308.5" y="11.5" width="18" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F0y-ec-Y0X">
+                                                    <rect key="frame" x="280.5" y="11" width="18" height="22"/>
+                                                    <state key="normal" image="minus" catalog="system">
+                                                        <attributedString key="attributedTitle"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="cartItemMinusButtonTapped:" destination="Srg-PM-GVE" eventType="touchUpInside" id="qkb-MY-HH1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.9883275628" green="0.98799580340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstItem="oMH-tS-qHp" firstAttribute="centerY" secondItem="A1e-Vf-CcO" secondAttribute="centerY" id="3e2-0t-AEv"/>
+                                                <constraint firstItem="NsD-4j-aDD" firstAttribute="leading" secondItem="F0y-ec-Y0X" secondAttribute="trailing" constant="10" id="8oV-Rd-JQu"/>
+                                                <constraint firstItem="fMa-Vq-Pzb" firstAttribute="centerY" secondItem="A1e-Vf-CcO" secondAttribute="centerY" id="EDr-Iw-xJk"/>
+                                                <constraint firstItem="oMH-tS-qHp" firstAttribute="leading" secondItem="A1e-Vf-CcO" secondAttribute="leadingMargin" id="Hpw-pN-qnd"/>
+                                                <constraint firstItem="QEr-Nn-q78" firstAttribute="leading" secondItem="fMa-Vq-Pzb" secondAttribute="trailing" constant="20" id="KS3-f3-ttB"/>
+                                                <constraint firstItem="fMa-Vq-Pzb" firstAttribute="leading" secondItem="NsD-4j-aDD" secondAttribute="trailing" constant="10" id="V6p-Tj-f7q"/>
+                                                <constraint firstItem="NsD-4j-aDD" firstAttribute="centerY" secondItem="A1e-Vf-CcO" secondAttribute="centerY" id="epn-j1-o7l"/>
+                                                <constraint firstItem="QEr-Nn-q78" firstAttribute="centerY" secondItem="A1e-Vf-CcO" secondAttribute="centerY" id="lRQ-9S-m4f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QEr-Nn-q78" secondAttribute="trailing" id="pnk-4v-Pgc"/>
+                                                <constraint firstItem="F0y-ec-Y0X" firstAttribute="centerY" secondItem="A1e-Vf-CcO" secondAttribute="centerY" id="uTm-Sy-eTv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                        <connections>
+                                            <outlet property="cartItemAmount" destination="NsD-4j-aDD" id="qfi-eM-3k7"/>
+                                            <outlet property="cartItemName" destination="oMH-tS-qHp" id="s2J-32-CBX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f10-YZ-xFK">
                                 <rect key="frame" x="322" y="772" width="72" height="21"/>
@@ -232,14 +300,14 @@
                             <constraint firstItem="ngp-aF-JDx" firstAttribute="top" secondItem="kJ1-Fp-hAT" secondAttribute="bottom" constant="10" id="7e5-Pp-Qnu"/>
                             <constraint firstItem="ngp-aF-JDx" firstAttribute="leading" secondItem="v4I-pw-3HE" secondAttribute="leading" constant="20" id="EKE-nK-Lqs"/>
                             <constraint firstItem="gNQ-tH-p9c" firstAttribute="top" secondItem="cwg-Bt-jx4" secondAttribute="bottom" constant="10" id="HS1-E7-A90"/>
-                            <constraint firstItem="v4I-pw-3HE" firstAttribute="trailing" secondItem="cwg-Bt-jx4" secondAttribute="trailing" constant="20" id="L7e-D5-K92"/>
+                            <constraint firstItem="v4I-pw-3HE" firstAttribute="trailing" secondItem="cwg-Bt-jx4" secondAttribute="trailing" id="L7e-D5-K92"/>
                             <constraint firstItem="v4I-pw-3HE" firstAttribute="bottom" secondItem="f10-YZ-xFK" secondAttribute="bottom" constant="20" id="LjF-dw-NvG"/>
                             <constraint firstItem="vHR-yG-rkk" firstAttribute="trailing" secondItem="v4I-pw-3HE" secondAttribute="trailing" id="M40-Gg-OMw"/>
                             <constraint firstAttribute="trailing" secondItem="gNQ-tH-p9c" secondAttribute="trailing" constant="20" id="Mam-k8-qIt"/>
                             <constraint firstItem="vHR-yG-rkk" firstAttribute="top" secondItem="v4I-pw-3HE" secondAttribute="top" id="Mtp-Ok-aBf"/>
                             <constraint firstItem="gNQ-tH-p9c" firstAttribute="leading" secondItem="RPi-J8-EMf" secondAttribute="leading" constant="20" id="Pep-xU-alf"/>
                             <constraint firstItem="v4I-pw-3HE" firstAttribute="trailing" secondItem="VHk-xR-hB2" secondAttribute="trailing" constant="20" id="RfI-dB-Hpg"/>
-                            <constraint firstItem="cwg-Bt-jx4" firstAttribute="leading" secondItem="v4I-pw-3HE" secondAttribute="leading" constant="20" id="V1m-40-gVP"/>
+                            <constraint firstItem="cwg-Bt-jx4" firstAttribute="leading" secondItem="v4I-pw-3HE" secondAttribute="leading" id="V1m-40-gVP"/>
                             <constraint firstItem="vHR-yG-rkk" firstAttribute="leading" secondItem="v4I-pw-3HE" secondAttribute="leading" id="ao6-sZ-uU1"/>
                             <constraint firstItem="cwg-Bt-jx4" firstAttribute="top" secondItem="ngp-aF-JDx" secondAttribute="bottom" constant="10" id="exb-TV-rHW"/>
                             <constraint firstItem="VHk-xR-hB2" firstAttribute="top" secondItem="vHR-yG-rkk" secondAttribute="bottom" constant="20" id="i3N-xw-juw"/>
@@ -401,7 +469,10 @@
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="minus" catalog="system" width="128" height="24"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>
