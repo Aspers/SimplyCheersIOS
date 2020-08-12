@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="60" width="414" height="665"/>
                                         <color key="backgroundColor" red="0.84391099209999998" green="0.95709413290000001" blue="0.94117695089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="116" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-dY-7AE" customClass="ProductCell" customModule="SimplyCheersIOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="116" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-dY-7AE" customClass="ProductCell" customModule="SimplyCheersIOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="116"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zXT-dY-7AE" translatesAutoresizingMaskIntoConstraints="NO" id="YPB-IL-zOv">
@@ -276,9 +276,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f10-YZ-xFK">
-                                <rect key="frame" x="322" y="772" width="72" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f10-YZ-xFK">
+                                <rect key="frame" x="20" y="772" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -296,7 +296,7 @@
                             <constraint firstItem="ngp-aF-JDx" firstAttribute="top" secondItem="VHk-xR-hB2" secondAttribute="bottom" constant="10" id="0AY-9Y-EC2"/>
                             <constraint firstItem="v4I-pw-3HE" firstAttribute="trailing" secondItem="ngp-aF-JDx" secondAttribute="trailing" constant="20" id="1nf-Tg-GzV"/>
                             <constraint firstItem="f10-YZ-xFK" firstAttribute="top" secondItem="gNQ-tH-p9c" secondAttribute="bottom" constant="10" id="46j-6M-IxM"/>
-                            <constraint firstItem="f10-YZ-xFK" firstAttribute="leading" secondItem="v4I-pw-3HE" secondAttribute="leading" constant="322" id="6H1-5v-ll5"/>
+                            <constraint firstItem="f10-YZ-xFK" firstAttribute="leading" secondItem="v4I-pw-3HE" secondAttribute="leading" constant="20" id="6H1-5v-ll5"/>
                             <constraint firstItem="ngp-aF-JDx" firstAttribute="top" secondItem="kJ1-Fp-hAT" secondAttribute="bottom" constant="10" id="7e5-Pp-Qnu"/>
                             <constraint firstItem="ngp-aF-JDx" firstAttribute="leading" secondItem="v4I-pw-3HE" secondAttribute="leading" constant="20" id="EKE-nK-Lqs"/>
                             <constraint firstItem="gNQ-tH-p9c" firstAttribute="top" secondItem="cwg-Bt-jx4" secondAttribute="bottom" constant="10" id="HS1-E7-A90"/>
@@ -318,11 +318,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v4I-pw-3HE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="cart.fill" catalog="system" badgeValue="123" selectedImage="cart.fill" id="Lik-8J-5yg">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="cart.fill" catalog="system" selectedImage="cart.fill" id="Lik-8J-5yg">
                         <color key="badgeColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="cartList" destination="cwg-Bt-jx4" id="Cad-W2-B4j"/>
+                        <outlet property="cartTabBarItem" destination="Lik-8J-5yg" id="Ate-7p-GZJ"/>
                         <outlet property="cartTotal" destination="f10-YZ-xFK" id="kuf-dt-eL0"/>
                         <outlet property="selectedUserBalance" destination="VHk-xR-hB2" id="nD7-94-3re"/>
                         <outlet property="selectedUserName" destination="kJ1-Fp-hAT" id="Muv-rp-RTW"/>

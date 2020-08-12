@@ -25,6 +25,8 @@ struct CartItem {
     }
     
     mutating func removeProduct() -> Void {
-        self.amount-=1
+        if amount > 0 {
+            self.amount-=1
+        }
     }
 }

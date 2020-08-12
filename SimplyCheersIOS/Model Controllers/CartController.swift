@@ -12,6 +12,7 @@ class CartController {
     
     static let shared = CartController()
     
+    static let cartItemsUpdatedNotification = Notification.Name("CartController.cartItemsUpdated")
     var cart = Cart()
     
     func addProductToCart(product: Product) -> Void {
@@ -20,6 +21,10 @@ class CartController {
     
     func removeProductFromCart(product: Product) -> Void {
         cart.removeProduct(product: product)
+    }
+    
+    func deleteProductFromCart(product: Product) -> Void {
+        cart.deleteProduct(product: product)
     }
     
 }
