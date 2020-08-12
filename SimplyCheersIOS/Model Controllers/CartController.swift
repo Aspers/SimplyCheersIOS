@@ -10,4 +10,16 @@ import Foundation
 
 class CartController {
     
+    static let shared = CartController()
+    
+    var cart = Cart()
+    
+    func addProductToCart(product: Product) -> Void {
+        cart.addProduct(product: product)
+    }
+    
+    func removeProductFromCart(product: Product) -> Void {
+        cart.removeProduct(product: product)
+    }
+    
 }

@@ -20,6 +20,7 @@ class CartOverviewViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(setSelectedUser), name: UserController.selectedUserUpdatedNotification, object: nil)
         setSelectedUser()
+        cartTotal.text = "\(CartController.shared.cart.totalItems)"
     }
     
     @objc func setSelectedUser() {

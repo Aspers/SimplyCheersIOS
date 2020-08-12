@@ -30,6 +30,7 @@
 		D494D2DA24D9D9A00019D089 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2D924D9D9A00019D089 /* User.swift */; };
 		D494D2DC24D9D9B70019D089 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2DB24D9D9B70019D089 /* Cart.swift */; };
 		D494D2E024D9DD650019D089 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494D2DF24D9DD650019D089 /* Category.swift */; };
+		D4A028B724E3E94300894892 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A028B624E3E94300894892 /* CartItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		D494D2D924D9D9A00019D089 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D494D2DB24D9D9B70019D089 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		D494D2DF24D9DD650019D089 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		D4A028B624E3E94300894892 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		F10D40F8534EBA94340B62B2 /* Pods_SimplyCheersIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCheersIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				D494D2D924D9D9A00019D089 /* User.swift */,
 				D494D2DB24D9D9B70019D089 /* Cart.swift */,
 				D494D2DF24D9DD650019D089 /* Category.swift */,
+				D4A028B624E3E94300894892 /* CartItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */,
 				D494D2E024D9DD650019D089 /* Category.swift in Sources */,
 				D494D2CD24D9AB330019D089 /* UserListViewController.swift in Sources */,
+				D4A028B724E3E94300894892 /* CartItem.swift in Sources */,
 				D45D5E0424DD869700A2DDB5 /* UserController.swift in Sources */,
 				D45D5E0824DD872300A2DDB5 /* CategoryController.swift in Sources */,
 				D494D2D124D9AB5C0019D089 /* CartOverviewViewController.swift in Sources */,
