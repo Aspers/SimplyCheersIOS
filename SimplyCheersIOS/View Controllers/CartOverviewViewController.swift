@@ -15,12 +15,16 @@ class CartOverviewViewController: UIViewController {
     @IBOutlet var cartList: UITableView!
     @IBOutlet var cartTotal: UILabel!
     @IBOutlet var cartTabBarItem: UITabBarItem!
+    @IBOutlet var checkoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(setSelectedUser), name: UserController.selectedUserUpdatedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCartUI), name: CartController.cartItemsUpdatedNotification, object: nil)
+        
+        checkoutButton.layer.cornerRadius = 7
+        
         setSelectedUser()
         updateCartUI()
         
@@ -37,7 +41,7 @@ class CartOverviewViewController: UIViewController {
             selectedUserName.text = "\(selectedUser!.firstName) \(selectedUser!.lastName)"
             selectedUserBalance.text = String(format: "€ %.2f", Double(truncating: selectedUser!.balance as NSNumber))
             if selectedUser!.balance <= 0 {
-                selectedUserBalance.textColor = UIColor.red
+                selectedUserBalance.textColor = UIColor.red.withAlphaComponent(0.7)
             } else {
                 selectedUserBalance.textColor = UIColor.black
             }

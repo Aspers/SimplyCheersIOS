@@ -14,6 +14,7 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var avatarLabel: UILabel!
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var balanceLabel: PaddingLabel!
+    @IBOutlet var userContainer: UIView!
     
     var user: User!
     
@@ -27,6 +28,12 @@ class UserCell: UITableViewCell {
         avatarLabel.text = (user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
         balanceLabel.text = String(format: "€ %.2f", Double(truncating: user.balance as NSNumber))
         setSelectedUser()
+        
+        userContainer.layer.cornerRadius = 10
+        
+        if user.nickname == nil {
+            userContainer.centerYAnchor.constraint(equalTo: self.userNameLabel.centerYAnchor).isActive = true
+        }
         
         // Formatting van balance label
         balanceLabel.layer.cornerRadius = 10

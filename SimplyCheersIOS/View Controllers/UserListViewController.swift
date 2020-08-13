@@ -11,6 +11,7 @@ import Lottie
 
 class UserListViewController: UIViewController {
 
+    @IBOutlet var mainView: UIView!
     @IBOutlet var searchContainerView: UIView!
     @IBOutlet var userList: UITableView!
     @IBOutlet var mainUserSelectionView: UIStackView!
@@ -87,6 +88,7 @@ class UserListViewController: UIViewController {
     
     private func loading() {
         mainUserSelectionView.isHidden = true
+        mainView.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 251/255, alpha: 1)
         animationView?.isHidden = false
         animationView?.play()
     }
@@ -94,6 +96,7 @@ class UserListViewController: UIViewController {
     private func doneLoading() {
         animationView?.stop()
         animationView?.isHidden = true
+        mainView.backgroundColor = UIColor(red: 179/255, green: 203/255, blue: 200/255, alpha: 1)
         mainUserSelectionView.isHidden = false
     }
 }
@@ -116,6 +119,15 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedUser = self.filteredUsers[indexPath.row]
         if UserController.shared.selectedUser == nil || selectedUser.userId != UserController.shared.selectedUser.userId {
             UserController.shared.selectedUser = selectedUser
+        }
+        let cell = tableView.cellForRow(at: indexPath) as! UserCell
+        
+        UIView.animate(withDuration: 0.08, delay: 0, options: .curveEaseIn, animations: {
+            cell.userContainer.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+        }){ (_) in
+            UIView.animate(withDuration: 0.08, delay: 0, options: .curveEaseIn, animations: {
+                cell.userContainer.transform = .identity
+            })
         }
     }
     
