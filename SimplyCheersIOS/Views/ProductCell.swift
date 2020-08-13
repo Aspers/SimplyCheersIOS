@@ -36,10 +36,18 @@ class ProductCell: UITableViewCell {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.addToCart))
         self.productContainer.addGestureRecognizer(gesture)
         
+        
     }
     
     @objc func addToCart(sender: UITapGestureRecognizer) {
         CartController.shared.cart.addProduct(product: product)
+        UIView.animate(withDuration: 0.08, delay: 0, options: .curveEaseIn, animations: {
+            self.productContainer.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+        }){ (_) in
+            UIView.animate(withDuration: 0.08, delay: 0, options: .curveEaseIn, animations: {
+                self.productContainer.transform = .identity
+            })
+        }
     }
     
 }
