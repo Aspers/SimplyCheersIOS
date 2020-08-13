@@ -27,4 +27,10 @@ class CartController {
         cart.deleteProduct(product: product)
     }
     
+    func checkoutCart() {
+        UserController.shared.updateUserBalance(forAmount: cart.totalPrice)
+        cart.clearCart()
+        UserController.shared.clearSelectedUser()
+    }
+    
 }

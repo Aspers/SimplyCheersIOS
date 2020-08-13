@@ -52,17 +52,16 @@ class UserCell: UITableViewCell {
     }
     
     @objc func setSelectedUser() {
-        guard UserController.shared.selectedUser != nil else { return }
-        if UserController.shared.selectedUser.userId == self.user.userId {
+        if UserController.shared.selectedUser == nil || UserController.shared.selectedUser.userId != self.user.userId {
+            self.avatarLabel.backgroundColor = UIColor(red: 86/255, green: 98/255, blue: 106/255, alpha: 1)
+            self.avatarLabel.text = (user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
+        } else {
             self.avatarLabel.backgroundColor = UIColor(red: 153/255, green: 214/255, blue: 177/255, alpha: 0.75)
             self.avatarLabel.text = ""
             let attachment = NSTextAttachment()
             attachment.image = UIImage(systemName: "checkmark")
             let string = NSAttributedString(attachment: attachment)
             self.avatarLabel.attributedText = string
-        } else {
-            self.avatarLabel.backgroundColor = UIColor(red: 86/255, green: 98/255, blue: 106/255, alpha: 1)
-            self.avatarLabel.text = (user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
         }
     }
 

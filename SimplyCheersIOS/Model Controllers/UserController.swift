@@ -38,4 +38,25 @@ class UserController {
 
         task.resume()
     }
+    
+    func updateUserBalance(forAmount amount: Decimal) {
+        let updateUrl = baseURL.appendingPathComponent("users/\(selectedUser.userId)")
+        var request = URLRequest(url: updateUrl)
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let newBalance = selectedUser.balance - amount
+        let data = UserDTO(userId: selectedUser.userId, balance: newBalance)
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try? jsonEncoder.encode(data)
+        request.httpBody = jsonData
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+        }
+        task.resume()
+        
+    }
+    
+    func clearSelectedUser() {
+        self.selectedUser = nil
+    }
 }

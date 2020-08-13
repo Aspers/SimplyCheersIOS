@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		990E6EAB73BA41806D8998E5 /* Pods_SimplyCheersIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10D40F8534EBA94340B62B2 /* Pods_SimplyCheersIOS.framework */; };
+		D41930A524E5A2090004D2B5 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41930A424E5A2090004D2B5 /* UserDTO.swift */; };
 		D433EDB324DAFF3B004163C9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */; };
 		D433EDB524DB0297004163C9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB424DB0297004163C9 /* UserCell.swift */; };
 		D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		5EE1C58FA51B07BA3C13BB30 /* Pods-SimplyCheersIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCheersIOS.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		82368497DEB3583DCCCD1B11 /* Pods-SimplyCheersIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCheersIOS.release.xcconfig"; path = "Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS.release.xcconfig"; sourceTree = "<group>"; };
+		D41930A424E5A2090004D2B5 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D433EDB424DB0297004163C9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabBarViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				D494D2DB24D9D9B70019D089 /* Cart.swift */,
 				D494D2DF24D9DD650019D089 /* Category.swift */,
 				D4A028B624E3E94300894892 /* CartItem.swift */,
+				D41930A424E5A2090004D2B5 /* UserDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				D45D5E0A24DEF76700A2DDB5 /* ProductCell.swift in Sources */,
 				D453FBA524E1C12E005C751C /* CartController.swift in Sources */,
 				D45D5E0624DD86FC00A2DDB5 /* ProductController.swift in Sources */,
+				D41930A524E5A2090004D2B5 /* UserDTO.swift in Sources */,
 				D433EDB324DAFF3B004163C9 /* PaddingLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

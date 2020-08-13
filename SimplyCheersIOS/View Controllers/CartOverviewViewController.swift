@@ -32,12 +32,18 @@ class CartOverviewViewController: UIViewController {
         cartList.dataSource = self
     }
     
+    @IBAction func checkoutCart(_ sender: Any) {
+        CartController.shared.checkoutCart()
+    }
+    
     @objc func setSelectedUser() {
         let selectedUser = UserController.shared.selectedUser
         if selectedUser == nil {
             selectedUserName.text = "Selecteer een gebruiker"
             selectedUserBalance.text = nil
+            disableButton()
         } else {
+            enableButton()
             selectedUserName.text = "\(selectedUser!.firstName) \(selectedUser!.lastName)"
             selectedUserBalance.text = String(format: "€ %.2f", Double(truncating: selectedUser!.balance as NSNumber))
             if selectedUser!.balance <= 0 {
@@ -52,7 +58,22 @@ class CartOverviewViewController: UIViewController {
         DispatchQueue.main.async {
             self.cartList.reloadData()
             self.cartTotal.text = String(format: "Totaal: € %.2f", Double(truncating: CartController.shared.cart.totalPrice as NSNumber))
+            if CartController.shared.cart.totalItems < 1 {
+                self.disableButton()
+            } else {
+                self.enableButton()
+            }
         }
+    }
+    
+    private func disableButton() {
+        checkoutButton.isEnabled = false
+        checkoutButton.backgroundColor = UIColor.lightGray
+    }
+    
+    private func enableButton() {
+        checkoutButton.isEnabled = true
+        checkoutButton.backgroundColor = UIColor(red: 199/255, green: 121/255, blue: 126/255, alpha: 1)
     }
 }
 
