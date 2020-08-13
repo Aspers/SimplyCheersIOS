@@ -12,6 +12,7 @@ import Lottie
 class StoreViewController: UIViewController {
     
     @IBOutlet var productList: UITableView!
+    @IBOutlet var mainView: UIView!
     @IBOutlet var searchContainerView: UIView!
     @IBOutlet var mainProductSelectionView: UIStackView!
     
@@ -28,7 +29,10 @@ class StoreViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchContainerView.addSubview(searchController.searchBar)
-        searchController.searchBar.barTintColor = UIColor(red: 215/255, green: 244/255, blue: 240/255, alpha: 1)
+        searchController.searchBar.barTintColor = UIColor(red: 249/255, green: 255/255, blue: 251/255, alpha: 1)
+        searchController.searchBar.tintColor = UIColor(red: 199/255, green: 121/255, blue: 126/255, alpha: 1)
+        searchController.searchBar.placeholder = "Zoeken"
+        searchController.searchBar.setValue("Annuleren", forKey: "cancelButtonText")
         searchController.searchBar.delegate = self
         
         //productList.refreshControl = refreshControl
@@ -105,6 +109,7 @@ class StoreViewController: UIViewController {
     
     private func loading() {
         mainProductSelectionView.isHidden = true
+        mainView.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 251/255, alpha: 1)
         animationView?.isHidden = false
         animationView?.play()
     }
@@ -112,6 +117,7 @@ class StoreViewController: UIViewController {
     private func doneLoading() {
         animationView?.stop()
         animationView?.isHidden = true
+        mainView.backgroundColor = UIColor(red: 179/255, green: 203/255, blue: 200/255, alpha: 1)
         mainProductSelectionView.isHidden = false
     }
     

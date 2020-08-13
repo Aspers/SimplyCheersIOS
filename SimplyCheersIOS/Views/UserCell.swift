@@ -23,14 +23,14 @@ class UserCell: UITableViewCell {
         balanceLabel.text = String(format: "€ %.2f", Double(truncating: user.balance as NSNumber))
         
         // Formatting van balance label
-        balanceLabel.layer.cornerRadius = balanceLabel.bounds.size.height/2
+        balanceLabel.layer.cornerRadius = 10
         balanceLabel.layer.masksToBounds = true
         if user.balance.isLessThanOrEqualTo(Decimal(0)) {
             balanceLabel.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         } else if user.balance.isLessThanOrEqualTo(Decimal(5)) {
             balanceLabel.backgroundColor = UIColor.yellow.withAlphaComponent(0.3)
         } else {
-            balanceLabel.backgroundColor = UIColor.green.withAlphaComponent(0.3)
+            balanceLabel.backgroundColor = UIColor(red: 153/255, green: 214/255, blue: 177/255, alpha: 0.75)
         }
         
         // Formating van avatar label
