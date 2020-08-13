@@ -9,10 +9,25 @@
 import UIKit
 
 class StoreTabBarViewController: UITabBarController {
+    
+    var cartTabBarItem: UITabBarItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCartBadge), name: CartController.cartItemsUpdatedNotification, object: nil)
+        cartTabBarItem = viewControllers?[2].tabBarItem
         delegate = self
+    }
+    
+    @objc func updateCartBadge() {
+        DispatchQueue.main.async {
+            if CartController.shared.cart.totalItems == 0 {
+                self.cartTabBarItem.badgeValue = nil
+            } else {
+                self.cartTabBarItem.badgeValue = String(CartController.shared.cart.totalItems)
+            }
+        }
     }
 }
 

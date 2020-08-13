@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="60" width="414" height="665"/>
                                         <color key="backgroundColor" red="0.70321180549999995" green="0.79425317799999995" blue="0.78463284870000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="116" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-dY-7AE" customClass="ProductCell" customModule="SimplyCheersIOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="116" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-dY-7AE" customClass="ProductCell" customModule="SimplyCheersIOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="116"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zXT-dY-7AE" translatesAutoresizingMaskIntoConstraints="NO" id="YPB-IL-zOv">

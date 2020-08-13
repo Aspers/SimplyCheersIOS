@@ -48,7 +48,6 @@ class CartOverviewViewController: UIViewController {
         DispatchQueue.main.async {
             self.cartList.reloadData()
             self.cartTotal.text = String(format: "Totaal: € %.2f", Double(truncating: CartController.shared.cart.totalPrice as NSNumber))
-            self.cartTabBarItem.badgeValue = "\(CartController.shared.cart.totalItems)"
         }
     }
 }
