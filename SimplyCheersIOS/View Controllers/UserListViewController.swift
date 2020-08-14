@@ -19,7 +19,7 @@ class UserListViewController: UIViewController {
     var searchController: UISearchController!
     var users = [User]()
     var filteredUsers = [User]()
-    var animationView: AnimationView?
+    var animationView = AnimationView(name: "loadingBeer")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,15 @@ class UserListViewController: UIViewController {
         searchController.searchBar.placeholder = "Zoeken"
         searchController.searchBar.setValue("Annuleren", forKey: "cancelButtonText")
         searchController.searchBar.delegate = self
-        
-        animationView = .init(name: "loadingBeer")
-        animationView?.loopMode = .loop
-        animationView?.animationSpeed = 2
-        animationView?.frame = view.bounds
-        view.addSubview(animationView!)
+
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 2
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        animationView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        animationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
 
         self.updateUsers()
 
@@ -92,13 +95,13 @@ class UserListViewController: UIViewController {
     private func loading() {
         mainUserSelectionView.isHidden = true
         mainView.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 251/255, alpha: 1)
-        animationView?.isHidden = false
-        animationView?.play()
+        animationView.isHidden = false
+        animationView.play()
     }
     
     private func doneLoading() {
-        animationView?.stop()
-        animationView?.isHidden = true
+        animationView.stop()
+        animationView.isHidden = true
         mainView.backgroundColor = UIColor(red: 179/255, green: 203/255, blue: 200/255, alpha: 1)
         mainUserSelectionView.isHidden = false
     }

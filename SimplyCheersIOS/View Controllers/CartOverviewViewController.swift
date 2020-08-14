@@ -23,7 +23,8 @@ class CartOverviewViewController: UIViewController {
     @IBOutlet var cartTabBarItem: UITabBarItem!
     @IBOutlet var checkoutButton: UIButton!
     
-    private var animationView: AnimationView?
+    private var animationView = AnimationView(name: "checkAnimation")
+    private var animationViewLoading = AnimationView(name: "loadingSpinner")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,26 @@ class CartOverviewViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setSelectedUser), name: UserController.selectedUserUpdatedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCartUI), name: CartController.cartItemsUpdatedNotification, object: nil)
         
-        animationView = .init(name: "checkAnimation")
-        animationView?.animationSpeed = 1
-        animationView?.frame = view.bounds
-        view.addSubview(animationView!)
-        animationView?.isHidden = true
+        animationView.animationSpeed = 1
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        animationView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        animationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        animationView.isHidden = true
+        
+        animationViewLoading.loopMode = .loop
+        animationViewLoading.animationSpeed = 1
+        //animationViewLoading?.frame = view.bounds
+        animationViewLoading.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationViewLoading)
+        animationViewLoading.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        animationViewLoading.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        animationViewLoading.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        animationViewLoading.widthAnchor.constraint(equalToConstant: 200).isActive = true
+
+        animationViewLoading.isHidden = true
         
         checkoutButton.layer.cornerRadius = 7
         
@@ -47,12 +63,16 @@ class CartOverviewViewController: UIViewController {
     }
     
     @IBAction func checkoutCart(_ sender: Any) {
+        disableButton()
+        playLoadingAnimation()
         CartController.shared.checkoutCart() {
             (complete) in
             DispatchQueue.main.async {
                 if complete {
+                    self.stopLoadingAnimation()
                     self.playSuccesAnimation()
                 } else {
+                    self.stopLoadingAnimation()
                     print("Something went wrong")
                 }
             }
@@ -100,11 +120,21 @@ class CartOverviewViewController: UIViewController {
         checkoutButton.backgroundColor = UIColor(red: 199/255, green: 121/255, blue: 126/255, alpha: 1)
     }
     
+    private func playLoadingAnimation() {
+        self.animationViewLoading.isHidden = false
+        self.animationViewLoading.play()
+    }
+    
+    private func stopLoadingAnimation() {
+        self.animationViewLoading.stop()
+        self.animationViewLoading.isHidden = true
+    }
+    
     private func playSuccesAnimation() {
-        self.animationView?.isHidden = false
-        animationView!.play(fromFrame: SuccesKeyFrames.startLoading.rawValue, toFrame: SuccesKeyFrames.endSuccess.rawValue, loopMode: .playOnce) {
+        self.animationView.isHidden = false
+        animationView.play(fromFrame: SuccesKeyFrames.startLoading.rawValue, toFrame: SuccesKeyFrames.endSuccess.rawValue, loopMode: .playOnce) {
             (_) in
-            self.animationView?.isHidden = true
+            self.animationView.isHidden = true
         }
     }
 }
