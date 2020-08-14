@@ -62,6 +62,8 @@ class UserController {
     }
     
     func clearSelectedUser() {
-        self.selectedUser = nil
+        DispatchQueue.main.async {
+            self.selectedUser = nil
+        }
     }
 }

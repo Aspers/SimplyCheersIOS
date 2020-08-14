@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import Lottie
+
+enum SuccesKeyFrames: CGFloat {
+    case startLoading = 0
+    case endSuccess = 31
+}
 
 class CartOverviewViewController: UIViewController {
 
@@ -17,11 +23,19 @@ class CartOverviewViewController: UIViewController {
     @IBOutlet var cartTabBarItem: UITabBarItem!
     @IBOutlet var checkoutButton: UIButton!
     
+    private var animationView: AnimationView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(setSelectedUser), name: UserController.selectedUserUpdatedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCartUI), name: CartController.cartItemsUpdatedNotification, object: nil)
+        
+        animationView = .init(name: "checkAnimation")
+        animationView?.animationSpeed = 1
+        animationView?.frame = view.bounds
+        view.addSubview(animationView!)
+        animationView?.isHidden = true
         
         checkoutButton.layer.cornerRadius = 7
         
@@ -33,7 +47,16 @@ class CartOverviewViewController: UIViewController {
     }
     
     @IBAction func checkoutCart(_ sender: Any) {
-        CartController.shared.checkoutCart()
+        CartController.shared.checkoutCart() {
+            (complete) in
+            DispatchQueue.main.async {
+                if complete {
+                    self.playSuccesAnimation()
+                } else {
+                    print("Something went wrong")
+                }
+            }
+        }
     }
     
     @objc func setSelectedUser() {
@@ -75,6 +98,14 @@ class CartOverviewViewController: UIViewController {
         guard UserController.shared.selectedUser != nil, CartController.shared.cart.totalItems > 0 else {return}
         checkoutButton.isEnabled = true
         checkoutButton.backgroundColor = UIColor(red: 199/255, green: 121/255, blue: 126/255, alpha: 1)
+    }
+    
+    private func playSuccesAnimation() {
+        self.animationView?.isHidden = false
+        animationView!.play(fromFrame: SuccesKeyFrames.startLoading.rawValue, toFrame: SuccesKeyFrames.endSuccess.rawValue, loopMode: .playOnce) {
+            (_) in
+            self.animationView?.isHidden = true
+        }
     }
 }
 

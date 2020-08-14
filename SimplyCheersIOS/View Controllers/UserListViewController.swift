@@ -54,19 +54,21 @@ class UserListViewController: UIViewController {
     }
     
     @objc func updateUsers(){
-        self.loading()
-        UserController.shared.fetchAllActiveUsers {
-            (users) in
-            if let users = users {
-                DispatchQueue.main.async {
-                    self.users = users
-                    self.filteredUsers = users
-                    self.userList.reloadData()
-                    self.doneLoading()
-                    print(users)
+        DispatchQueue.main.async {
+            self.loading()
+            UserController.shared.fetchAllActiveUsers {
+                (users) in
+                if let users = users {
+                    DispatchQueue.main.async {
+                        self.users = users
+                        self.filteredUsers = users
+                        self.userList.reloadData()
+                        self.doneLoading()
+                    }
                 }
             }
         }
+
 
     }
     

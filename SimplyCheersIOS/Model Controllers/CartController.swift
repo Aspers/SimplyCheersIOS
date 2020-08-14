@@ -28,7 +28,7 @@ class CartController {
         cart.deleteProduct(product: product)
     }
     
-    func checkoutCart() {
+    func checkoutCart(completion: @escaping (Bool) -> Void) {
         UserController.shared.updateUserBalance(forAmount: cart.totalPrice) {
             (result) in
             if result {
@@ -38,6 +38,7 @@ class CartController {
             } else {
                 print("Checkout failed, please check your internet connection")
             }
+            completion(result)
         }
     }
     

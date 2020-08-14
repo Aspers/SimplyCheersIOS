@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		990E6EAB73BA41806D8998E5 /* Pods_SimplyCheersIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10D40F8534EBA94340B62B2 /* Pods_SimplyCheersIOS.framework */; };
 		D41930A524E5A2090004D2B5 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41930A424E5A2090004D2B5 /* UserDTO.swift */; };
+		D41930AD24E6AAB60004D2B5 /* checkAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = D41930AC24E6AAB60004D2B5 /* checkAnimation.json */; };
 		D433EDB324DAFF3B004163C9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */; };
 		D433EDB524DB0297004163C9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB424DB0297004163C9 /* UserCell.swift */; };
 		D433EDB924DC3AB2004163C9 /* StoreTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */; };
@@ -39,6 +40,7 @@
 		5EE1C58FA51B07BA3C13BB30 /* Pods-SimplyCheersIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCheersIOS.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		82368497DEB3583DCCCD1B11 /* Pods-SimplyCheersIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCheersIOS.release.xcconfig"; path = "Target Support Files/Pods-SimplyCheersIOS/Pods-SimplyCheersIOS.release.xcconfig"; sourceTree = "<group>"; };
 		D41930A424E5A2090004D2B5 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		D41930AC24E6AAB60004D2B5 /* checkAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkAnimation.json; sourceTree = "<group>"; };
 		D433EDB224DAFF3B004163C9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D433EDB424DB0297004163C9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D433EDB824DC3AB2004163C9 /* StoreTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabBarViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		D45D5DF924DD52A700A2DDB5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D41930AC24E6AAB60004D2B5 /* checkAnimation.json */,
 				D45F277424E035A3008D257B /* drink.png */,
 				D45D5E0124DD5C4100A2DDB5 /* loadingBeer.json */,
 				D494D2BF24D5B64D0019D089 /* Assets.xcassets */,
@@ -256,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41930AD24E6AAB60004D2B5 /* checkAnimation.json in Resources */,
 				D45D5E0224DD5C4100A2DDB5 /* loadingBeer.json in Resources */,
 				D494D2C324D5B64D0019D089 /* LaunchScreen.storyboard in Resources */,
 				D494D2C024D5B64D0019D089 /* Assets.xcassets in Resources */,

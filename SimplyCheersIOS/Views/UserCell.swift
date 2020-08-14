@@ -52,16 +52,18 @@ class UserCell: UITableViewCell {
     }
     
     @objc func setSelectedUser() {
-        if UserController.shared.selectedUser == nil || UserController.shared.selectedUser.userId != self.user.userId {
-            self.avatarLabel.backgroundColor = UIColor(red: 86/255, green: 98/255, blue: 106/255, alpha: 1)
-            self.avatarLabel.text = (user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
-        } else {
-            self.avatarLabel.backgroundColor = UIColor(red: 153/255, green: 214/255, blue: 177/255, alpha: 0.75)
-            self.avatarLabel.text = ""
-            let attachment = NSTextAttachment()
-            attachment.image = UIImage(systemName: "checkmark")
-            let string = NSAttributedString(attachment: attachment)
-            self.avatarLabel.attributedText = string
+        DispatchQueue.main.async {
+            if UserController.shared.selectedUser == nil || UserController.shared.selectedUser.userId != self.user.userId {
+                self.avatarLabel.backgroundColor = UIColor(red: 86/255, green: 98/255, blue: 106/255, alpha: 1)
+                self.avatarLabel.text = (self.user.firstName.prefix(1) + self.user.lastName.prefix(1)).uppercased()
+            } else {
+                self.avatarLabel.backgroundColor = UIColor(red: 153/255, green: 214/255, blue: 177/255, alpha: 0.75)
+                self.avatarLabel.text = ""
+                let attachment = NSTextAttachment()
+                attachment.image = UIImage(systemName: "checkmark")
+                let string = NSAttributedString(attachment: attachment)
+                self.avatarLabel.attributedText = string
+            }
         }
     }
 
