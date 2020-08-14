@@ -43,14 +43,12 @@ class CartOverviewViewController: UIViewController {
         
         animationViewLoading.loopMode = .loop
         animationViewLoading.animationSpeed = 1
-        //animationViewLoading?.frame = view.bounds
         animationViewLoading.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(animationViewLoading)
         animationViewLoading.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         animationViewLoading.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         animationViewLoading.heightAnchor.constraint(equalToConstant: 200).isActive = true
         animationViewLoading.widthAnchor.constraint(equalToConstant: 200).isActive = true
-
         animationViewLoading.isHidden = true
         
         checkoutButton.layer.cornerRadius = 7
@@ -165,7 +163,6 @@ extension CartOverviewViewController: CartCellDelegate {
     
     func didTapTrash(product: Product) {
         CartController.shared.deleteProductFromCart(product: product)
-    }
-    
+    }    
     
 }

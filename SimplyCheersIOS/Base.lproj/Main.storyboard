@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Store View Controller-->
+        <!--Winkel-->
         <scene sceneID="J93-Nv-Kv8">
             <objects>
                 <viewController id="QRj-iL-CKh" customClass="StoreViewController" customModule="SimplyCheersIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="60" width="414" height="665"/>
                                         <color key="backgroundColor" red="0.70321180549999995" green="0.79425317799999995" blue="0.78463284870000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="116" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-dY-7AE" customClass="ProductCell" customModule="SimplyCheersIOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="116" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-dY-7AE" customClass="ProductCell" customModule="SimplyCheersIOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="116"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zXT-dY-7AE" translatesAutoresizingMaskIntoConstraints="NO" id="YPB-IL-zOv">
@@ -136,7 +136,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KNH-x6-w2n"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="house.fill" catalog="system" selectedImage="house.fill" id="s5m-Si-asH"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Winkel" image="house.fill" catalog="system" selectedImage="house.fill" id="s5m-Si-asH"/>
                     <connections>
                         <outlet property="mainProductSelectionView" destination="RNh-LW-XW5" id="Edh-tR-Alq"/>
                         <outlet property="mainView" destination="QBe-rC-XFn" id="jaO-1n-Hwf"/>
@@ -158,6 +158,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.33875029674779261" green="0.38393017147502478" blue="0.41439353813559321" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" red="0.98832768199999999" green="0.99199157950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="1b8-Vv-zoe" kind="relationship" relationship="viewControllers" id="OWU-4S-kLH"/>
@@ -169,7 +174,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </scene>
-        <!--Cart Overview View Controller-->
+        <!--Checkout-->
         <scene sceneID="4Be-pW-e1A">
             <objects>
                 <viewController id="dVp-ic-LGG" customClass="CartOverviewViewController" customModule="SimplyCheersIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -340,7 +345,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v4I-pw-3HE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="cart.fill" catalog="system" selectedImage="cart.fill" id="Lik-8J-5yg">
+                    <tabBarItem key="tabBarItem" tag="2" title="Checkout" image="cart.fill" catalog="system" selectedImage="cart.fill" id="Lik-8J-5yg">
                         <color key="badgeColor" red="0.78148834749999996" green="0.47610258709999997" blue="0.4943338551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <connections>
@@ -356,7 +361,7 @@
             </objects>
             <point key="canvasLocation" x="1037.68115942029" y="1009.8214285714286"/>
         </scene>
-        <!--User List View Controller-->
+        <!--Gebruikers-->
         <scene sceneID="eGD-45-ySY">
             <objects>
                 <viewController id="1b8-Vv-zoe" customClass="UserListViewController" customModule="SimplyCheersIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -496,7 +501,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8m7-J5-In7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="person.2.fill" catalog="system" selectedImage="person.2.fill" id="JfX-Ao-hal"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Gebruikers" image="person.2.fill" catalog="system" selectedImage="person.2.fill" id="JfX-Ao-hal"/>
                     <connections>
                         <outlet property="mainUserSelectionView" destination="FZS-0c-YUu" id="o3E-qa-LFh"/>
                         <outlet property="mainView" destination="uIh-2N-a6Q" id="p63-lB-6kx"/>
