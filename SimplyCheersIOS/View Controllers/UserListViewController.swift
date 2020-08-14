@@ -76,7 +76,6 @@ class UserListViewController: UIViewController {
     }
     
     func filterUserListToSearchText(_ searchText: String) {
-        
         if searchText.count > 0 {
             
             filteredUsers = users

@@ -28,14 +28,9 @@ class UserCell: UITableViewCell {
         avatarLabel.text = (user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
         balanceLabel.text = String(format: "€ %.2f", Double(truncating: user.balance as NSNumber))
         setSelectedUser()
-        
+
         userContainer.layer.cornerRadius = 10
         
-        if user.nickname == nil {
-            userContainer.centerYAnchor.constraint(equalTo: self.userNameLabel.centerYAnchor).isActive = true
-        }
-        
-        // Formatting van balance label
         balanceLabel.layer.cornerRadius = 10
         balanceLabel.layer.masksToBounds = true
         if user.balance.isLessThanOrEqualTo(Decimal(0)) {
@@ -46,7 +41,6 @@ class UserCell: UITableViewCell {
             balanceLabel.backgroundColor = UIColor(red: 153/255, green: 214/255, blue: 177/255, alpha: 0.75)
         }
         
-        // Formating van avatar label
         avatarLabel.layer.cornerRadius = avatarLabel.bounds.size.height/2
         avatarLabel.layer.masksToBounds = true
     }
