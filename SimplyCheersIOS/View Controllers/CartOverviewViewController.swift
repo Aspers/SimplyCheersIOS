@@ -72,6 +72,7 @@ class CartOverviewViewController: UIViewController {
     }
     
     private func enableButton() {
+        guard UserController.shared.selectedUser != nil, CartController.shared.cart.totalItems > 0 else {return}
         checkoutButton.isEnabled = true
         checkoutButton.backgroundColor = UIColor(red: 199/255, green: 121/255, blue: 126/255, alpha: 1)
     }

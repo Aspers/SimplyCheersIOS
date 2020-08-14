@@ -13,6 +13,7 @@ class CartController {
     static let shared = CartController()
     
     static let cartItemsUpdatedNotification = Notification.Name("CartController.cartItemsUpdated")
+    static let cartCheckoutNotification = Notification.Name("CartController.cartCheckout")
     var cart = Cart()
     
     func addProductToCart(product: Product) -> Void {
@@ -28,9 +29,16 @@ class CartController {
     }
     
     func checkoutCart() {
-        UserController.shared.updateUserBalance(forAmount: cart.totalPrice)
-        cart.clearCart()
-        UserController.shared.clearSelectedUser()
+        UserController.shared.updateUserBalance(forAmount: cart.totalPrice) {
+            (result) in
+            if result {
+                self.cart.clearCart()
+                UserController.shared.clearSelectedUser()
+                NotificationCenter.default.post(name: CartController.cartCheckoutNotification, object: nil)
+            } else {
+                print("Checkout failed, please check your internet connection")
+            }
+        }
     }
     
 }

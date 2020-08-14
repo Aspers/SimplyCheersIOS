@@ -24,7 +24,8 @@ class UserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup searchController
+         NotificationCenter.default.addObserver(self, selector: #selector(updateUsers), name: CartController.cartCheckoutNotification, object: nil)
+        
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -40,17 +41,9 @@ class UserListViewController: UIViewController {
         animationView?.animationSpeed = 2
         animationView?.frame = view.bounds
         view.addSubview(animationView!)
-        
-        self.loading()
-        
-        UserController.shared.fetchAllActiveUsers {
-            (users) in
-            if let users = users {
-                self.updateUI(with: users)
-            }
-        }
-        
-        // Delegates instellen
+
+        self.updateUsers()
+
         userList.delegate = self
         userList.dataSource = self
         
@@ -60,13 +53,21 @@ class UserListViewController: UIViewController {
         searchController.isActive = false
     }
     
-    func updateUI(with users: [User]){
-        DispatchQueue.main.async {
-            self.users = users
-            self.filteredUsers = users
-            self.userList.reloadData()
-            self.doneLoading()
+    @objc func updateUsers(){
+        self.loading()
+        UserController.shared.fetchAllActiveUsers {
+            (users) in
+            if let users = users {
+                DispatchQueue.main.async {
+                    self.users = users
+                    self.filteredUsers = users
+                    self.userList.reloadData()
+                    self.doneLoading()
+                    print(users)
+                }
+            }
         }
+
     }
     
     func filterUserListToSearchText(_ searchText: String) {

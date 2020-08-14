@@ -39,7 +39,7 @@ class UserController {
         task.resume()
     }
     
-    func updateUserBalance(forAmount amount: Decimal) {
+    func updateUserBalance(forAmount amount: Decimal, completion: @escaping (Bool) -> Void) {
         let updateUrl = baseURL.appendingPathComponent("users/\(selectedUser.userId)")
         var request = URLRequest(url: updateUrl)
         request.httpMethod = "PATCH"
@@ -51,6 +51,11 @@ class UserController {
         request.httpBody = jsonData
         let task = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
+            if let httpResponse = response as? HTTPURLResponse {
+                completion(httpResponse.statusCode == 200)
+            } else {
+                completion(false)
+            }
         }
         task.resume()
         
