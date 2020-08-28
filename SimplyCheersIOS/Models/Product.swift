@@ -15,7 +15,6 @@ struct Product: Codable {
     var favourite: Bool
     var active: Bool
     var imageURL: URL?
-    var categories: [Category]?
     
     enum CodingKeys: String, CodingKey {
         case productId
@@ -24,7 +23,6 @@ struct Product: Codable {
         case favourite
         case active
         case imageURL = "image"
-        case categories
     }
     
     init(from decoder: Decoder) throws {
@@ -35,6 +33,5 @@ struct Product: Codable {
         self.favourite = try valueContainer.decode(Bool.self, forKey: CodingKeys.favourite)
         self.active = try valueContainer.decode(Bool.self, forKey: CodingKeys.active)
         self.imageURL = try? valueContainer.decode(URL.self, forKey: CodingKeys.imageURL)
-        self.categories = try? valueContainer.decode([Category].self, forKey: CodingKeys.categories)
     }
 }

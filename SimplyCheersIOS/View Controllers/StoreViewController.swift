@@ -17,7 +17,6 @@ class StoreViewController: UIViewController {
     @IBOutlet var mainProductSelectionView: UIStackView!
     
     private var searchController: UISearchController!
-    private var categories = [Category]()
     private var products = [Product]()
     private var filteredProducts = [Product]()
     private var animationView = AnimationView(name: "loadingBeer")
@@ -69,13 +68,6 @@ class StoreViewController: UIViewController {
         }
     }
     
-    func updateCategories(with categories: [Category]) {
-        DispatchQueue.main.async {
-            self.categories = categories
-            print(self.categories)
-        }
-    }
-    
     func filterProductListToSearchText(_ searchText: String) {
         
         if searchText.count > 0 {
@@ -93,13 +85,6 @@ class StoreViewController: UIViewController {
     }
     
     private func fetchData() {
-        CategoryController.shared.fetchAllCategories {
-            (categories) in
-            if let categories = categories {
-                self.updateCategories(with: categories)
-            }
-        }
-        
         ProductController.shared.fetchAllProducts {
             (products) in
             if let products = products {
