@@ -8,7 +8,7 @@ Alle onderdelen van deze applicatie zijn geschreven in het kader van de opleidin
 
 ## Project opzetten
 
-De applicatie is het eenvoudigste op te zetten via XCode. Hier kan je kiezen om via een emulator of fysiek apparaat de applicatie te draaien. 
+De applicatie is het eenvoudigste op te zetten via XCode. Hier kan je kiezen om via een emulator of fysiek apparaat de applicatie te draaien. Er wordt gebruik gemaakt van Pods om bepaalde externe libraries te laden. Deze zijn geïncludeerd in deze repository en worden in principe automatisch geconfigureerd.
 
 1. Clone het project in XCode
 2. Build en run de applicatie op gewenst apparaat
