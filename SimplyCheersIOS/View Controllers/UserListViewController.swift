@@ -16,10 +16,11 @@ class UserListViewController: UIViewController {
     @IBOutlet var userList: UITableView!
     @IBOutlet var mainUserSelectionView: UIStackView!
     
-    var searchController: UISearchController!
-    var users = [User]()
-    var filteredUsers = [User]()
-    var animationView = AnimationView(name: "loadingBeer")
+    private var searchController: UISearchController!
+    private var users = [User]()
+    private var filteredUsers = [User]()
+    private var animationView = AnimationView(name: "loadingBeer")
+    private var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,12 @@ class UserListViewController: UIViewController {
         animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         animationView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         animationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        userList.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(updateUsers), for: .valueChanged)
+        userList.addSubview(refreshControl)
 
+        self.loading()
         self.updateUsers()
 
         userList.delegate = self
@@ -58,7 +64,6 @@ class UserListViewController: UIViewController {
     
     @objc func updateUsers(){
         DispatchQueue.main.async {
-            self.loading()
             UserController.shared.fetchAllActiveUsers {
                 (users) in
                 if let users = users {
@@ -66,13 +71,15 @@ class UserListViewController: UIViewController {
                         self.users = users
                         self.filteredUsers = users
                         self.userList.reloadData()
+                        if (self.searchController.searchBar.text != nil) {
+                            self.filterUserListToSearchText(self.searchController.searchBar.text!)
+                        }
                         self.doneLoading()
+                        self.refreshControl.endRefreshing()
                     }
                 }
             }
         }
-
-
     }
     
     func filterUserListToSearchText(_ searchText: String) {

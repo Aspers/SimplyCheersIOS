@@ -26,7 +26,6 @@ class UserController {
         let userUrl = baseURL.appendingPathComponent("users").appendingPathComponent("active")
         let task = URLSession.shared.dataTask(with: userUrl) {
             (data, response, error) in
-            print(userUrl)
             if let data = data, let userData = try? self.jsonDecoder.decode([User].self, from: data) {
                 completion(userData)
             } else {

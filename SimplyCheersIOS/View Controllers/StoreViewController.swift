@@ -20,6 +20,7 @@ class StoreViewController: UIViewController {
     private var products = [Product]()
     private var filteredProducts = [Product]()
     private var animationView = AnimationView(name: "loadingBeer")
+    private var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,9 @@ class StoreViewController: UIViewController {
         searchController.searchBar.setValue("Annuleren", forKey: "cancelButtonText")
         searchController.searchBar.delegate = self
         
-        //productList.refreshControl = refreshControl
-        //refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        productList.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        productList.addSubview(refreshControl)
         
         animationView.loopMode = .loop
         animationView.animationSpeed = 2
@@ -64,7 +66,11 @@ class StoreViewController: UIViewController {
             self.products = products
             self.filteredProducts = products
             self.productList.reloadData()
+            if (self.searchController.searchBar.text != nil) {
+                self.filterProductListToSearchText(self.searchController.searchBar.text!)
+            }
             self.doneLoading()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -84,15 +90,17 @@ class StoreViewController: UIViewController {
         }
     }
     
+    @objc func refreshData(){
+        fetchData()
+    }
+    
     private func fetchData() {
         ProductController.shared.fetchAllProducts {
             (products) in
             if let products = products {
                 self.updateUI(with: products)
-                
             }
         }
-        
     }
     
     private func loading() {
